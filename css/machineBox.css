@@ -1,0 +1,13 @@
+.machineBox {
+  border: solid grey 5px;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+
+}
+
+.machineStats  th, td {
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  padding: 8px 5px;
+}
