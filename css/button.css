@@ -7,7 +7,6 @@
   padding: 10px;
   animation-duration: 2s;
   margin-bottom: 20px;
-  align: center;
 }
 .showAlivePing {
   animation-name: alivePing;
