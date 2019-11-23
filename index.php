@@ -16,7 +16,11 @@
               <div class='buttonBox'>
                 <img src='img/redButton.svg' class='buttonVector'></img>
               </div><table class='machineStats'>";
+      echo "<h2>" . $stats['Name'] . "</h2><br>"; //force Name!!!
       foreach ($stats as $key => $value) {
+        if ($key == "Name") {
+          continue;
+        }
         echo "<tr><th>$key</th><td>$value</td></tr>";
       }
       echo "</table></div>";
@@ -30,8 +34,8 @@
     "comment" => "Main Server",
     "owner" => "snake-whisper",
     "email" => "snake-whisper@web-utils.eu"];
-    for ($i=0; $i < 50; $i++) {
-    printMachine($teststats);
+    for ($i=0; $i < 13; $i++) {
+      printMachine($teststats);
     }
   ?>
 </div>
