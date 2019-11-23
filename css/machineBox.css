@@ -7,24 +7,26 @@
 
 }
 
-.machineStats  th, td {
+.machineStats  th, .machineStats td {
   border-bottom: 1px solid #ddd;
   text-align: left;
   padding: 8px 5px;
   font-size: 14px;
 }
 
-/*.machineBoxNav li {
+.machineBoxNav {
+  border: 0;
+}
+
+/*
+.machineBoxNav th {
   float: right;
   border: solid black 1px;
   list-style-type: none;
   margin: 10px auto;
   display: inline-block;
 }
-
-.machineBoxNavContainer {
-  vertical-align: bottom;
-}*/
+*/
 
 .buttonBox {
   background-color: inherit;
@@ -34,7 +36,7 @@
   height: 80px;
   padding: 10px;
   animation-duration: 2s;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
 }
 .showAlivePing {
   animation-name: alivePing;
