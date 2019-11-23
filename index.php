@@ -1,6 +1,5 @@
 <html>
 <head>
-  <link rel="stylesheet" href="css/button.css">
   <link rel="stylesheet" href="css/machineBox.css">
   <link rel="stylesheet" href="css/layout.css">
   <style>

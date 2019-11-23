@@ -12,3 +12,36 @@
   text-align: left;
   padding: 8px 5px;
 }
+
+.buttonBox {
+  background-color: inherit;
+  border-radius: 50%;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  animation-duration: 2s;
+  margin-bottom: 20px;
+}
+.showAlivePing {
+  animation-name: alivePing;
+}
+
+.showDeadPing {
+  animation-name: DeadPing;
+}
+
+.buttonVector {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes alivePing {
+  from {background-color: blue;}
+  to {background-color: white;}
+}
+
+@keyframes deadPing {
+  from {background-color: blue;}
+  to {background-color: white;}
+}
