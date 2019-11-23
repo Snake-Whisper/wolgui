@@ -13,18 +13,17 @@
 <?php
     function printMachine($stats, $commands = array()) {
       echo "<div class='machineBox'>
-              <table class='machineBoxNav'>
-                <tr>
-                  <td>
+                  <div  class='machineLabel'>
+
                     <h2>" . $stats['Name'] . "</h2>
-                  </td>
-                  <td>
+                  </div>
+
                     <div class='buttonBox'>
                       <img src='img/redButton.svg' class='buttonVector'></img>
                     </div>
-                  </td>
-                </tr>
-              </table>
+
+
+
             <table class='machineStats'>";
       foreach ($stats as $key => $value) {
         if ($key == "Name") {

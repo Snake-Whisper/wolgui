@@ -31,6 +31,7 @@
 
 .machineBox {
   /*width: auto;*/
+  position: relative;
 }
 
 .machineBoxNav td {
@@ -44,6 +45,10 @@
 
 .machineBoxNav th {
   /*border: 0;*/
+}
+
+.machineLabel {
+  margin: 20px 20px;
 }
 
 /*
@@ -65,8 +70,9 @@
   padding: 0;
   animation-duration: 2s;
   margin-right: 0;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
+  position: absolute;
   /*margin-bottom: 20px;*/
 }
 .showAlivePing {
