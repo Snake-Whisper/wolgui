@@ -14,6 +14,18 @@
   font-size: 14px;
 }
 
+/*.machineBoxNav li {
+  float: right;
+  border: solid black 1px;
+  list-style-type: none;
+  margin: 10px auto;
+  display: inline-block;
+}
+
+.machineBoxNavContainer {
+  vertical-align: bottom;
+}*/
+
 .buttonBox {
   background-color: inherit;
   border-radius: 50%;
