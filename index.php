@@ -12,7 +12,10 @@
   <div id='machinesContainer'>
 <?php
     function printMachine($stats, $commands = array()) {
-      echo "<div class='machineBox'><div class='buttonBox showAlivePing'><img src='img/redButton.svg' class='buttonVector'></img></div><table class='machineStats'>";
+      echo "<div class='machineBox'>
+              <div class='buttonBox'>
+                <img src='img/redButton.svg' class='buttonVector'></img>
+              </div><table class='machineStats'>";
       foreach ($stats as $key => $value) {
         echo "<tr><th>$key</th><td>$value</td></tr>";
       }
@@ -24,13 +27,12 @@
     "Name" => "Main Server",
     "ipv6" => "2001:BEEF:BEEF:BEEF:BEEF:BEEF:BEEF:BEEF",
     "location" => "Main Room",
-    "comment" => "Mien Server",
-    "owner" => "snmake-whisper",
-    "email" => "snake-whiusper@web-utils.eu"];
+    "comment" => "Main Server",
+    "owner" => "snake-whisper",
+    "email" => "snake-whisper@web-utils.eu"];
+    for ($i=0; $i < 50; $i++) {
     printMachine($teststats);
-    printMachine($teststats);
-    printMachine($teststats);
-    printMachine($teststats);
+    }
   ?>
 </div>
 </body>
