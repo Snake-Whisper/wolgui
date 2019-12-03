@@ -24,17 +24,19 @@
 
 .machineBox {
   position: relative;
+  min-width: 300px;
 }
 
 .machineLabel {
-  margin: 30px 20px;
+  margin: 30px 10px;
+  text-align: left;
 }
 
 .buttonBox {
   background-color: inherit;
   border-radius: 50%;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   animation-duration: 2s;
   top: 15px;
   right: 15px;

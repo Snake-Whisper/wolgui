@@ -28,7 +28,7 @@
       }
       echo "</table></div>";
     }
-    $teststats = [
+    $teststats1 = [
     "mac" => "BB:BB:BB:BB:BB",
     "ip"  => "192.168.178.20",
     "Name" => "Main Server",
@@ -37,9 +37,27 @@
     "comment" => "Main Server",
     "owner" => "snake-whisper",
     "email" => "snake-whisper@web-utils.eu"];
-    for ($i=0; $i < 13; $i++) {
-      printMachine($teststats);
-    }
+    $teststats2 = [
+    "mac" => "BB:BB:BB:BB:BB",
+    "ip"  => "192.168.178.20",
+    "Name" => "Main Server",
+    "ipv6" => "2001:BEEF:BEEF:BEEF:BEEF:BEEF:BEEF:BEEF",
+    "location" => "Main Room",
+    "comment" => "Main Server"];
+    $teststats3 = [
+    "mac" => "BB:BB:BB:BB:BB",
+    "ip"  => "192.168.178.20",
+    "Name" => "Main Server"];
+    printMachine($teststats1);
+    printMachine($teststats2);
+    printMachine($teststats3);
+    printMachine($teststats1);
+    printMachine($teststats3);
+    printMachine($teststats3);
+    printMachine($teststats2);
+    printMachine($teststats2);
+    printMachine($teststats1);
+
   ?>
 </div>
 </body>
