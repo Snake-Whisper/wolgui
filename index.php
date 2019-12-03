@@ -57,6 +57,24 @@
     printMachine($teststats2);
     printMachine($teststats2);
     printMachine($teststats1);
+    printMachine($teststats1);
+    printMachine($teststats2);
+    printMachine($teststats3);
+    printMachine($teststats1);
+    printMachine($teststats3);
+    printMachine($teststats3);
+    printMachine($teststats2);
+    printMachine($teststats2);
+    printMachine($teststats1);
+    printMachine($teststats1);
+    printMachine($teststats2);
+    printMachine($teststats3);
+    printMachine($teststats1);
+    printMachine($teststats3);
+    printMachine($teststats3);
+    printMachine($teststats2);
+    printMachine($teststats2);
+    printMachine($teststats1);
 
   ?>
 </div>
