@@ -11,24 +11,8 @@
 <body>
   <div id='machinesContainer'>
 <?php
-    function printMachine($stats, $commands = array()) {
-      echo "<div class='machineBox'>
-              <div  class='machineLabel'>
-                <h2>" . $stats['Name'] . "</h2>
-              </div>
-              <div class='buttonBox'>
-                <img src='img/redButton.svg' class='buttonVector'></img>
-              </div>
-              <table class='machineStats'>";
-      foreach ($stats as $key => $value) {
-        if ($key == "Name") {
-          continue;
-        }
-        echo "<tr><th>$key</th><td>$value</td></tr>";
-      }
-      echo "</table></div>";
-    }
-    $teststats = [
+  require_once("lib/machines.php");
+  $teststats = [
     "mac" => "BB:BB:BB:BB:BB",
     "ip"  => "192.168.178.20",
     "Name" => "Main Server",
@@ -38,7 +22,8 @@
     "owner" => "snake-whisper",
     "email" => "snake-whisper@web-utils.eu"];
     for ($i=0; $i < 13; $i++) {
-      printMachine($teststats);
+      $t = new Machine($teststats);
+      $t->printMachine();
     }
   ?>
 </div>
