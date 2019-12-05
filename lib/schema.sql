@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS machines;
+CREATE TABLE machines (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  mac CHAR(12) UNIQUE NOT NULL,
+  IP CHAR(16),
+  IPv6 CHAR(40) UNIQUE,
+  location TEXT,
+  com TEXT,
+  owner TEXT,
+  eMail TEXT,
+  command INTEGER,
+  FOREIGN KEY (command) REFERENCES commands(id)
+);
+
+DROP TABLE IF EXISTS commands;
+CREATE TABLE commands (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  cmd TEXT UNIQUE
+);

@@ -15,10 +15,16 @@
     }
 
     function initDB () {
-      $this->db->exec("show Tables;");
+      ob_start();
+      require ("schema.sql");
+      $sql = ob_get_contents();
+      ob_end_clean();
+      $this->db->exec($sql);
+      //echo $sql;
     }
   }
 
     //testCode
-    $tmp = new MachineStorageSQLite3Engine("test.db");
+    $tmp = new MachineStorageSQLite3Engine("machines.db");
+    $tmp->initDB();
  ?>
