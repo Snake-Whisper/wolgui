@@ -41,7 +41,7 @@
       $sql->bindValue(':Com', $params['Comment'] ?? 'NULL');
       $sql->bindValue(':Owner', $params['Owner'] ?? 'NULL');
       $sql->bindValue(':eMail', $params['eMail'] ?? 'NULL');
-      $sql->bindValue(':Cmd', $params['Command'] ?? 'NULL');
+      $sql->bindValue(':cmd', $params['Command'] ?? 'NULL');
       $sql->execute();
     }
 
@@ -103,8 +103,6 @@
       $sql->bindValue(":cmd", $cmd);
       $result = $sql->execute();
     }
-
-
   }
 
     //testCode
@@ -117,9 +115,14 @@
       "Comment" => "Main Server",
       "Owner" => "snake-whisper",
       "eMail" => "snake-whisper@web-utils.eu",
-      "cmd" => 1];
+      "Command" => 2];
     $tmp = new MachineStorageSQLite3Engine("machines.db");
     $tmp->initDB();
+
+    $tmp->addCommand("echo 'test'");
+    $tmp->addCommand("echo 'test2'");
+    $tmp->alterCommand(1, "test2altered");
+
     $tmp->addMachine($teststats);
     $tmp->addMachine($teststats);
     $tmp->addMachine($teststats);
@@ -132,10 +135,7 @@
     }
     //$tmp->getMachines('handler');
     //$tmp->delMachineByName("Main Server");
-    $tmp->addCommand("echo 'test'");
-    $tmp->addCommand("echo 'test2'");
-    $tmp->alterCommand(1, "test2altered");
     //$tmp->delCommand(2);
-    echo $tmp->getCommand(1);
+    echo $tmp->getMainCommand(1);
 
  ?>
