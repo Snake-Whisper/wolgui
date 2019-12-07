@@ -2,9 +2,9 @@ DROP TABLE IF EXISTS machines;
 CREATE TABLE machines (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   Name TEXT NOT NULL,
-  Mac CHAR(12) UNIQUE,
+  Mac CHAR(12),
   IP CHAR(16),
-  IPv6 CHAR(40) UNIQUE,
+  IPv6 CHAR(40),
   Location TEXT,
   Com TEXT,
   Owner TEXT,

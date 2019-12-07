@@ -3,8 +3,9 @@
   interface iMachineStorageEngine {
     public function initDB();
     public function addMachine($params);
-    /*public function delMachine($id);
-    public function getMachines($handler);
+    public function delMachineByID($id);
+    public function delMachineByName($id);
+    /*public function getMachines($handler);
     public function getMainCommand($id);
     public function getCommand($id, $cmdId);*/
   }
@@ -40,6 +41,19 @@
       $sql->bindValue(':Cmd', $params['Command'] ?? 'NULL');
       $sql->execute();
     }
+
+
+    public function delMachineByID($id) {
+      $sql = $this->db->prepare("DELETE FROM machines WHERE id=:id");
+      $sql->bindValue(":id", $id);
+      $sql->execute();
+    }
+
+    public function delMachineByName($name) {
+      $sql = $this->db->prepare("DELETE FROM machines WHERE Name=:Name");
+      $sql->bindValue(":Name", $name);
+      $sql->execute();
+    }
   }
 
     //testCode
@@ -55,4 +69,9 @@
     $tmp = new MachineStorageSQLite3Engine("machines.db");
     $tmp->initDB();
     $tmp->addMachine($teststats);
+    $tmp->addMachine($teststats);
+    $tmp->addMachine($teststats);
+    $tmp->addMachine($teststats);
+    //$tmp->delMachineByName("Main Server");
+
  ?>
