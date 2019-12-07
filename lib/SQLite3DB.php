@@ -4,9 +4,9 @@
     public function initDB();
     public function addMachine($params);
     public function delMachineByID($id);
-    public function delMachineByName($id);
-    /*public function getMachines($handler);
-    public function getMainCommand($id);
+    public function delMachineByName($id); //need?
+    public function getMachines($handler);
+    /*public function getMainCommand($id);
     public function getCommand($id, $cmdId);*/
   }
 
@@ -54,6 +54,17 @@
       $sql->bindValue(":Name", $name);
       $sql->execute();
     }
+
+    public function getMachines($handler) {
+      $result = $this->db->query('SELECT
+                                  Name, Mac, IP, IPv6, Location, Com, Owner, eMail, Cmd
+                                  FROM machines');
+      while ($row = $result->fetchArray()) {
+        $handler($row);
+      }
+    }
+
+
   }
 
     //testCode
@@ -72,6 +83,13 @@
     $tmp->addMachine($teststats);
     $tmp->addMachine($teststats);
     $tmp->addMachine($teststats);
+
+    function handler($row) {
+      foreach ($row as $key => $value) {
+        echo "$key: $value";
+      }
+    }
+    //$tmp->getMachines('handler');
     //$tmp->delMachineByName("Main Server");
 
  ?>
