@@ -6,8 +6,8 @@
     public function delMachineByID($id);
     public function delMachineByName($id); //need?
     public function getMachines($handler);
-    /*public function getMainCommand($id);
-    public function getCommand($id, $cmdId);*/
+    public function getMainCommand($id);
+    /*public function getCommand($id, $cmdId);*/
   }
 
   class MachineStorageSQLite3Engine implements iMachineStorageEngine {
@@ -64,6 +64,16 @@
       }
     }
 
+    public function getMainCommand($id) {
+      $sql = $this->db->prepare("SELECT commands.cmd
+                                  FROM commands, machines
+                                  WHERE machines.id =:id AND
+                                  commands.id = machines.cmd");
+     $sql->bindValue("id", $id);
+     $result = $sql->execute();
+     return $result->fetchArray()["cmd"] ?? ""; //optimze for single querys
+    }
+
 
   }
 
@@ -76,7 +86,8 @@
       "Location" => "Main Room",
       "Comment" => "Main Server",
       "Owner" => "snake-whisper",
-      "eMail" => "snake-whisper@web-utils.eu"];
+      "eMail" => "snake-whisper@web-utils.eu",
+      "cmd" => 1];
     $tmp = new MachineStorageSQLite3Engine("machines.db");
     $tmp->initDB();
     $tmp->addMachine($teststats);
@@ -91,5 +102,6 @@
     }
     //$tmp->getMachines('handler');
     //$tmp->delMachineByName("Main Server");
+    echo $tmp->getMainCommand(2);
 
  ?>
