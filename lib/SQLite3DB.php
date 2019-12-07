@@ -45,7 +45,6 @@
       $sql->execute();
     }
 
-
     public function delMachineByID($id) {
       $sql = $this->db->prepare("DELETE FROM machines WHERE id=:id");
       $sql->bindValue(":id", $id);
@@ -68,7 +67,6 @@
     }
 
     public function getMainCommand($id) {
-      //TODO: test!!!
       $sql = $this->db->prepare("SELECT commands.cmd
                                   FROM commands, machines
                                   WHERE machines.id =:id AND
@@ -104,38 +102,4 @@
       $result = $sql->execute();
     }
   }
-
-    //testCode
-    $teststats = [
-      "Mac" => "BB:BB:BB:BB:BB",
-      "IP"  => "192.168.178.20",
-      "Name" => "Main Server",
-      "IPv6" => "2001:BEEF:BEEF:BEEF:BEEF:BEEF:BEEF:BEEF",
-      "Location" => "Main Room",
-      "Comment" => "Main Server",
-      "Owner" => "snake-whisper",
-      "eMail" => "snake-whisper@web-utils.eu",
-      "Command" => 2];
-    $tmp = new MachineStorageSQLite3Engine("machines.db");
-    $tmp->initDB();
-
-    $tmp->addCommand("echo 'test'");
-    $tmp->addCommand("echo 'test2'");
-    $tmp->alterCommand(1, "test2altered");
-
-    $tmp->addMachine($teststats);
-    $tmp->addMachine($teststats);
-    $tmp->addMachine($teststats);
-    $tmp->addMachine($teststats);
-
-    function handler($row) {
-      foreach ($row as $key => $value) {
-        echo "$key: $value";
-      }
-    }
-    //$tmp->getMachines('handler');
-    //$tmp->delMachineByName("Main Server");
-    //$tmp->delCommand(2);
-    echo $tmp->getMainCommand(1);
-
  ?>
