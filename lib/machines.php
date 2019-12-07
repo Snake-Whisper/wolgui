@@ -1,8 +1,7 @@
 <?php
 class Machine {
-  function __construct($stats, $commands = array()) {
+  function __construct($stats) {
     $this->stats = $stats;
-    $this->commands = array();
   }
 
   function printMachine() {

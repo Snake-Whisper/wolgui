@@ -1,16 +1,16 @@
 DROP TABLE IF EXISTS machines;
 CREATE TABLE machines (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
-  name TEXT NOT NULL,
-  mac CHAR(12) UNIQUE NOT NULL,
+  Name TEXT NOT NULL,
+  Mac CHAR(12) UNIQUE,
   IP CHAR(16),
   IPv6 CHAR(40) UNIQUE,
-  location TEXT,
-  com TEXT,
-  owner TEXT,
+  Location TEXT,
+  Com TEXT,
+  Owner TEXT,
   eMail TEXT,
-  command INTEGER,
-  FOREIGN KEY (command) REFERENCES commands(id)
+  cmd INTEGER,
+  FOREIGN KEY (cmd) REFERENCES commands(id)
 );
 
 DROP TABLE IF EXISTS commands;
