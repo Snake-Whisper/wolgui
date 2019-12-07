@@ -7,7 +7,10 @@
     public function delMachineByName($id); //need?
     public function getMachines($handler);
     public function getMainCommand($id);
-    /*public function getCommand($id, $cmdId);*/
+    /*public function getCommand($id, $cmdId);
+    public function addCommand($cmd);
+    public function delCommand($id);
+    public function alterCommand($id, $cmd)*/
   }
 
   class MachineStorageSQLite3Engine implements iMachineStorageEngine {
@@ -65,6 +68,7 @@
     }
 
     public function getMainCommand($id) {
+      //TODO: test!!!
       $sql = $this->db->prepare("SELECT commands.cmd
                                   FROM commands, machines
                                   WHERE machines.id =:id AND
