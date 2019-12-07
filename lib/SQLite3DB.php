@@ -7,10 +7,10 @@
     public function delMachineByName($id); //need?
     public function getMachines($handler);
     public function getMainCommand($id);
-    /*public function getCommand($id, $cmdId);
+    public function getCommand($cmdid);
     public function addCommand($cmd);
     public function delCommand($id);
-    public function alterCommand($id, $cmd)*/
+    public function alterCommand($id, $cmd);
   }
 
   class MachineStorageSQLite3Engine implements iMachineStorageEngine {
@@ -78,6 +78,32 @@
      return $result->fetchArray()["cmd"] ?? ""; //optimze for single querys
     }
 
+    public function addCommand($cmd) {
+      $sql = $this->db->prepare("INSERT INTO commands (cmd) VALUES (:cmd)");
+      $sql->bindValue(":cmd", $cmd);
+      $sql->execute();
+    }
+
+    public function getCommand($cmdid) {
+      $sql = $this->db->prepare("SELECT cmd FROM commands WHERE id=:id");
+      $sql->bindValue(":id", $cmdid);
+      $result = $sql->execute();
+      return $result->fetchArray()["cmd"] ?? ""; //optimze for single querys
+    }
+
+    public function delCommand($id) {
+      $sql = $this->db->prepare("DELETE FROM commands WHERE id=:id");
+      $sql->bindValue(":id", $id);
+      $result = $sql->execute();
+    }
+
+    public function alterCommand($id, $cmd) {
+      $sql = $this->db->prepare("UPDATE commands SET cmd=:cmd WHERE id=:id");
+      $sql->bindValue(":id", $id);
+      $sql->bindValue(":cmd", $cmd);
+      $result = $sql->execute();
+    }
+
 
   }
 
@@ -106,6 +132,10 @@
     }
     //$tmp->getMachines('handler');
     //$tmp->delMachineByName("Main Server");
-    echo $tmp->getMainCommand(2);
+    $tmp->addCommand("echo 'test'");
+    $tmp->addCommand("echo 'test2'");
+    $tmp->alterCommand(1, "test2altered");
+    //$tmp->delCommand(2);
+    echo $tmp->getCommand(1);
 
  ?>
