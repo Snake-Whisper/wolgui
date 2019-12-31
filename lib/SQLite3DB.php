@@ -6,7 +6,7 @@
     public function delMachineByID($id);
     public function delMachineByName($id); //need?
     public function getMachines($handler);
-    public function getMainCommand($id);
+    public function getMainCommandByMAchine($id);
     public function getCommand($cmdid);
     public function addCommand($cmd);
     public function delCommand($id);
@@ -66,7 +66,7 @@
       }
     }
 
-    public function getMainCommand($id) {
+    public function getMainCommandByMachine($id) {
       $sql = $this->db->prepare("SELECT commands.cmd
                                   FROM commands, machines
                                   WHERE machines.id =:id AND
