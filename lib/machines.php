@@ -10,11 +10,11 @@ class Machine {
               <h2>" . $this->stats['Name'] . "</h2>
             </div>
             <div class='buttonBox'>
-              <img src='img/redButton.svg' class='buttonVector'></img>
+              <a href=?id=" . $this->stats['id'] . "&action=cmd><img src='img/redButton.svg' class='buttonVector'></img></a>
             </div>
             <table class='machineStats'>";
     foreach ($this->stats as $key => $value) {
-      if ($key == "Name") {
+      if ($key == "Name" || $key == "cmd" || $key == "id") {
         continue;
       }
       echo "<tr><th>$key</th><td>$value</td></tr>";

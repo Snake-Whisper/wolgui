@@ -12,7 +12,17 @@
   <div id='machinesContainer'>
 <?php
   require_once("lib/machines.php");
-  $teststats = [
+  require_once("lib/SQLite3DB.php");
+
+  $bk = new MachineStorageSQLite3Engine("lib/machines.db");
+
+  function _h_buildMachinesPanel ($stats) {
+    $t = new Machine($stats);
+    $t->printMachine();
+  }
+
+  $bk->getMachines("_h_buildMachinesPanel");
+  /*$teststats = [
     "Mac" => "BB:BB:BB:BB:BB",
     "IP"  => "192.168.178.20",
     "Name" => "Main Server",
@@ -22,9 +32,9 @@
     "Owner" => "snake-whisper",
     "eMail" => "snake-whisper@web-utils.eu"];
     for ($i=0; $i < 13; $i++) {
-      $t = new Machine($teststats);
-      $t->printMachine();
-    }
+
+    }*/
+
   ?>
 </div>
 </body>

@@ -59,9 +59,9 @@
 
     public function getMachines($handler) {
       $result = $this->db->query('SELECT
-                                  Name, Mac, IP, IPv6, Location, Com, Owner, eMail, Cmd
+                                  Name, Mac, IP, IPv6, Location, Com, Owner, eMail, Cmd, Id
                                   FROM machines');
-      while ($row = $result->fetchArray()) {
+      while ($row = $result->fetchArray(1)) {
         $handler($row);
       }
     }
