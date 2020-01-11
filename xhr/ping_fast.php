@@ -11,7 +11,8 @@ if (PEAR::isError($ping)) {
 //This file needs to be as fast as possible!!!
 
 //TODO: Make windows conform!
+filter_var($_GET["ip"], FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) || die();
 exec ("ping " . $_GET["ip"] . " -c1 -s1 -n -w1", $dummyOutput, $retVar);
-echo $retVar == 0 || 0;
+echo $retVar == 0;
 
 ?>
