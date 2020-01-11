@@ -11,6 +11,7 @@
     public function addCommand($cmd);
     public function delCommand($id);
     public function alterCommand($id, $cmd);
+    public function machineWakeUp($id);
   }
 
   class MachineStorageSQLite3Engine implements iMachineStorageEngine {
@@ -73,6 +74,17 @@
      $sql->bindValue("id", $id);
      $result = $sql->execute();
      return $result->fetchArray()["IP"];
+    }
+
+    public function machineWakeUp($id) {
+      require_once("misc.php"); //dirt...
+      $sql = $this->db->prepare("SELECT IP, Mac
+                                  FROM machines
+                                  WHERE machines.id =:id");
+      $sql->bindValue("id", $id);
+      $result = $sql->execute();
+      $res = $result->fetchArray();
+      wolv4($res["Mac"], $res["IP"]);
     }
 
     public function getMainCommandByMachine($id) {

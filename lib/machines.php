@@ -10,7 +10,7 @@ class Machine {
               <h2>" . $this->stats['Name'] . "</h2>
             </div>
             <div class='buttonBox'>
-              <a href=?id=" . $this->stats['id'] . "&action=cmd><img src='img/redButton.svg' class='buttonVector'></img></a>
+              <a href=?id=" . $this->stats['id'] . "&action=wol><img src='img/redButton.svg' class='buttonVector'></img></a>
             </div>
             <table class='machineStats'>";
     foreach ($this->stats as $key => $value) {
