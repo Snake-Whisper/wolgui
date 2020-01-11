@@ -37,8 +37,12 @@
             socket_close($sock);
         }
     }
-}
+  }
 
+function chkOnline ($ip) { //TODO: Make windows conform!
+  exec ("ping $ip -c1 -s1 -n -w1", $dummyOutput, $retVar);
+  return $retVar == 0;
+}
 
 function execInBackground($cmd) {
     if (substr(php_uname(), 0, 7) == "Windows"){
