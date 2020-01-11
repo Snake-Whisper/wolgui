@@ -66,6 +66,15 @@
       }
     }
 
+    public function getIPv4CIDR($id) {
+      $sql = $this->db->prepare("SELECT IP
+                                  FROM machines
+                                  WHERE machines.id =:id");
+     $sql->bindValue("id", $id);
+     $result = $sql->execute();
+     return $result->fetchArray()["IP"];
+    }
+
     public function getMainCommandByMachine($id) {
       $sql = $this->db->prepare("SELECT commands.cmd
                                   FROM commands, machines
