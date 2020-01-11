@@ -2,6 +2,7 @@
 <head>
   <link rel="stylesheet" href="css/machineBox.css">
   <link rel="stylesheet" href="css/layout.css">
+  <script src="js/chkActivity.js"></script>
 </head>
 <body>
   <div id='machinesContainer'>
