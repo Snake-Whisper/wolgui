@@ -1,3 +1,8 @@
+var machines = [] //TODO: oop
+window.onload = function () {
+  
+}
+
 function chkMachine (ip) {
   var xhr = new XMLHttpRequest();
   xhr.open("GET", "xhr/ping_fast.php?ip=" + ip);

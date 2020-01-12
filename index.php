@@ -3,6 +3,7 @@
   <link rel="stylesheet" href="css/machineBox.css">
   <link rel="stylesheet" href="css/layout.css">
   <script src="js/chkActivity.js"></script>
+  <script src="js/machines.js"></script>
 </head>
 <body>
   <div id='machinesContainer'>
