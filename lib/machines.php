@@ -7,7 +7,7 @@ class Machine {
   function printMachine() {
     echo "<div class='machineBox'>
             <div  class='machineLabel'>
-              <h2>" . $this->stats['Name'] . "</h2>
+              <h2>" . $this->stats['id'] . ": " . $this->stats['Name'] . "</h2>
             </div>
             <div class='buttonBox'>
               <a href=?id=" . $this->stats['id'] . "&action=wol><img src='img/redButton.svg' class='buttonVector'></img></a>
