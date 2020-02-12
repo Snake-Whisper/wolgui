@@ -35,18 +35,16 @@ function Machine (domMachine) {
     xhr.open("GET", "xhr/ping_fast.php?ip=" + getIP());
     xhr.overrideMimeType("text/plain");
     xhr.send();
-    //var b = this;
-    //b.setOnline();
-    xhr.onreadystatechange = function () {
+    xhr.onreadystatechange = function (dummy, link=dom.link, svg=dom.svg) {
       if (xhr.readyState === 4) {
         console.log("entered");
         if (xhr.response != "") {
-          alert("on");
-          b.setOnline();
+          svg.src = svg.src.replace("red", "green");
+          link.href = link.href.replace("action=wol", "action=cmd");
+
         } else {
-          alert("of");
-          b.setOffline();
-          //setoff();
+          svg.src = svg.src.replace("green", "red");
+          link.href = link.href.replace("action=cmd", "action=wol");
         }
       }
     }
@@ -58,5 +56,4 @@ window.onload=function () {
   var d = document.getElementsByClassName("machineBox");
   var mach = new Machine(d[0]);
   mach.chkOnline();
-  //mach.setOnline();
 }
