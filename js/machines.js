@@ -15,17 +15,11 @@ function Machine (domMachine) {
   };
 
   this.setOnline = function () {
-    /*if (vars.isOnline) {
-      return;
-    }*/
     dom.svg.src = dom.svg.src.replace("red", "green");
     dom.link.href = dom.link.href.replace("action=wol", "action=cmd");
   };
 
   this.setOffline = function () {
-    /*if (!vars.isOnline) {
-      return;
-    }*/
     dom.svg.src = dom.svg.src.replace("green", "red");
     dom.link.href = dom.link.href.replace("action=cmd", "action=wol");
   };
