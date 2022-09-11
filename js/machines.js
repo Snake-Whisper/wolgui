@@ -7,7 +7,8 @@ function Machine (domMachine) {
   };
 
   var vars = {
-    isOnline : false
+    isOnline : false,
+    isChecking : true
   };
 
   getIP = function () {
@@ -42,12 +43,19 @@ function Machine (domMachine) {
         }
       }
     }
+    if (vars.isChecking) {
+      setTimeout(this.checkOnline, 1000);
+      console.log("checking..."); //TODO: not working
+    }
   };
 }
 
 
 window.onload=function () {
+  machines = [];
   var d = document.getElementsByClassName("machineBox");
-  var mach = new Machine(d[0]);
-  mach.chkOnline();
+  for (i=0; i<d.length; i++) {
+    machines.push(new Machine(d[0]));
+  }
+
 }
